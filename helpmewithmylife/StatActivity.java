@@ -148,8 +148,6 @@ public class StatActivity extends AppCompatActivity {
 diff--;
             }
 
-            Ztluszcz3+=tluszcz;
-            Ztluszcz3+=5;
             cal.setText(""+Zkcal);
             pro.setText(""+Zbialko);
             fat.setText(""+Ztluszcz);
