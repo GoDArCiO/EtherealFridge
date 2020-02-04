@@ -1,11 +1,16 @@
 initial commit  2/3/2020
 
 Added input data validation, refactor - name, icon, sign 2/4/2020
+initialize some food items the first time when app is launched into quickadd tab 2/4/2020
 
 in plan:
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
-Bonus section showing what food is the most cost efficient to get chosen macroelement up.
-??? GoogleAdds, and GooglePlay
+Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
+----will it be fair without quantity?
+Giving user pointstreaks for keeping up with his macro-goals.
+??? graphics, design, better app-flow, darkmode
+??? GoogleAdds
 ??? Machine learning AI instructing us what to eat to keep our requirements positive
-initialize some food items the first time when app is launched into quickadd tab
+??? scan the net for energyvalues and price of the items user insert?
+
 
