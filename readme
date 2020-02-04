@@ -1,2 +1,9 @@
-This app is still missing expiry date.
-GoogleStore-> 
+initial commit  2/3/2020
+
+Added input data validation, refactor - name, icon, sign 2/4/2020
+
+in plan:
+Expiry date with firebase notification if sth gets 2orLess days near uneatability.
+Bonus section showing what food is the most cost efficient to get chosen macroelement up.
+??? GoogleAdds, and GooglePlay
+
