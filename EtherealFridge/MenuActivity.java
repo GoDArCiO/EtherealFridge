@@ -9,7 +9,7 @@ import android.view.View;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button ButtonP, ButtonE, ButtonS, ButtonF;
+    private Button ButtonP, ButtonE, ButtonS, Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class MenuActivity extends AppCompatActivity {
         ButtonP = (Button) findViewById(R.id.buttonP);
         ButtonE = (Button) findViewById(R.id.buttonE);
         ButtonS = (Button) findViewById(R.id.buttonS);
+        Button = (Button) findViewById(R.id.button);
 
         ButtonP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +40,14 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, StatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, BonusActivity.class);
                 startActivity(intent);
             }
         });

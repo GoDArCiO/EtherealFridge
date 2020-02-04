@@ -15,9 +15,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
 
-    private static final String TABLE_NAME = "food_table9";
-    private static final String TABLE2_NAME = "stats_table9";
-    private static final String TABLE3_NAME = "history_table9";
+    private static final String TABLE_NAME = "food_table19";
+    private static final String TABLE2_NAME = "stats_table19";
+    private static final String TABLE3_NAME = "history_table19";
     private static final String COL1 = "ID";
     private static final String COL2 = "name";
     //int
@@ -43,6 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createHistoryTable = "CREATE TABLE " + TABLE3_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL2 +" TEXT," + COL3 +" int," + COL4 +" int," + COL5 +" int," + COL6 +" int)";
         db.execSQL(createHistoryTable);
+
     }
 
     @Override

@@ -2,7 +2,9 @@ package com.example.EtherealFridge;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,7 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         editText = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
@@ -29,6 +32,24 @@ public class AddActivity extends AppCompatActivity {
         btnQadd = (Button) findViewById(R.id.btnQadd);
         btnViewData = (Button) findViewById(R.id.btnView);
         mDatabaseHelper = new DatabaseHelper(this);
+
+        //if first run
+        final String PREFS_NAME = "MyPrefsFile";
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("Comments", "First time");
+
+            mDatabaseHelper.addHistory("jajko",80,80,7,5);
+            mDatabaseHelper.addHistory("cola 1L",600,420,0,0);
+            mDatabaseHelper.addHistory("ryz 100g",100,130,3,1);
+            mDatabaseHelper.addHistory("schab 100g",300,129,23,4);
+            mDatabaseHelper.addHistory("prince polo",200,265,3,15);//5
+            mDatabaseHelper.addHistory("makaron 100g",88,101,4,1);
+
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("my_first_time", false).commit();
+        }
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +110,7 @@ public class AddActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void AddData(String item, int cena, int kcal, int bialko, int tluszcz) {
         boolean insertData = mDatabaseHelper.addData(item,cena,kcal,bialko,tluszcz);
