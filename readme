@@ -1,12 +1,19 @@
-initial commit  2/3/2020
+initial commit  
+02/03/2020
 
-Added input data validation, refactor - name, icon, sign 2/4/2020
-initialize some food items the first time when app is launched into quickadd tab 2/4/2020
+Added input data validation, refactor - name, icon, sign
+initialize some food items the first time when app is launched into quickadd tab 
+02/04/2020
+
+Corrects to feedback given by users ->
+- After saving changes or deleting product getting back to add screen
+- Price input type -> number
+- capped product names at 80chars
+Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
+02/05/2020
 
 in plan:
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
-Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
-----will it be fair without quantity?
 Giving user pointstreaks for keeping up with his macro-goals.
 ??? graphics, design, better app-flow, darkmode
 ??? GoogleAdds
