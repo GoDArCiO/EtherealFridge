@@ -9,6 +9,7 @@ Corrects to feedback given by users ->
 - After saving changes or deleting product getting back to add screen
 - Price input type -> number
 - capped product names at 80chars
+- textview caps in stats and bonus
 Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
 02/05/2020
 
