@@ -91,6 +91,9 @@ public class EditDataActivity extends AppCompatActivity {
                 }
                 if (editText.length() != 0) {
                     mDatabaseHelper.updateName(item,cena,kcal,bialko,tluszcz,selectedID,selectedName);
+                    toastMessage("Saved Changes");
+                    Intent intent = new Intent(EditDataActivity.this, AddActivity.class);
+                    startActivity(intent);
                 } else {
                     toastMessage("You must put something in the text field!");
                 }
@@ -102,7 +105,9 @@ public class EditDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mDatabaseHelper.deleteName(selectedID,selectedName);
                 editText.setText("");
-                toastMessage("removed from database");
+                toastMessage("Removed from database");
+                Intent intent = new Intent(EditDataActivity.this, AddActivity.class);
+                startActivity(intent);
             }
         });
 
