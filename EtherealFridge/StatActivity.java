@@ -159,41 +159,46 @@ public int i=0;
 
                     if(i==0){
                             //calculate cal
+                        if(!weights.isEmpty()) {
                             WeightA = Double.parseDouble(weights);
-                            if(sex.isChecked()){
-                                WeightA*=0.9;
+                            if (sex.isChecked()) {
+                                WeightA *= 0.9;
                             }
-                            WeightA*=24;
-                            if(body.isChecked()){
-                                WeightA*=0.9;
-                            }else{
-                                WeightA*=0.95;
+                            WeightA *= 24;
+                            if (body.isChecked()) {
+                                WeightA *= 0.9;
+                            } else {
+                                WeightA *= 0.95;
                             }
-                            if(sport.isChecked()){
-                                WeightA*=1.80;
-                            }else{
-                                WeightA*=1.55;
+                            if (sport.isChecked()) {
+                                WeightA *= 1.80;
+                            } else {
+                                WeightA *= 1.55;
                             }
-                            kcalA= (int) WeightA;
+                            kcalA = (int) WeightA;
 
                             //calculate protein
                             WeightA = Double.parseDouble(weights);
-                            if(sex.isChecked()){
-                                WeightA*=0.9;
-                            }else{
-                                WeightA*=1.2;
+                            if (sex.isChecked()) {
+                                WeightA *= 0.9;
+                            } else {
+                                WeightA *= 1.2;
                             }
-                            if(sport.isChecked()){
-                                WeightA*=1.05;
-                            }else{
-                                WeightA*=0.95;
+                            if (sport.isChecked()) {
+                                WeightA *= 1.05;
+                            } else {
+                                WeightA *= 0.95;
                             }
-                            proteinA= (int) WeightA;
+                            proteinA = (int) WeightA;
 
                             //calculate fat
-                            WeightA=kcalA*0.25;
-                            WeightA/=9;
-                            fatA= (int) WeightA;
+                            WeightA = kcalA * 0.25;
+                            WeightA /= 9;
+                            fatA = (int) WeightA;
+                        }else{
+                            toastMessage("You need to input your weight!");
+                            return;
+                        }
 
                     }else{
                             //walidacja czy podany text jest zlozony z cyfr
