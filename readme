@@ -13,6 +13,9 @@ Corrects to feedback given by users ->
 Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
 02/05/2020
 
+added automated way to calculate user needs
+02/06/2020
+
 in plan:
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
 Giving user pointstreaks for keeping up with his macro-goals.
