@@ -1,9 +1,9 @@
 initial commit  
-02/03/2020
+03/02/2020 ->6h
 
 Added input data validation, refactor - name, icon, sign
 initialize some food items the first time when app is launched into quickadd tab 
-02/04/2020
+04/02/2020 ->2h
 
 Corrects to feedback given by users ->
 - After saving changes or deleting product getting back to add screen
@@ -11,10 +11,12 @@ Corrects to feedback given by users ->
 - capped product names at 80chars
 - textview capps in stats and bonus
 Bonus section showing ranking of foods that are the most cost efficient to get chosen macroelement up.
-02/05/2020
+05/02/2020 ->4h
 
 added automated way to calculate user needs, app remembers settings if user wants 2
-02/06/2020
+06/02/2020 ->2h
+
+total time spent -> 14h
 
 in plan:
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
