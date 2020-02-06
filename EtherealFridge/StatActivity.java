@@ -19,16 +19,17 @@ import java.util.Calendar;
 
 public class StatActivity extends AppCompatActivity {
 
-        private TextView cal,pro,fat,calp,prop,fatp,cal3,pro3,fat3,cal3p,pro3p,fat3p;
-        private Button Reset,Set;
+        private TextView cal,pro,fat,calp,prop,fatp,cal3,pro3,fat3,cal3p,pro3p,fat3p,texv1,texv2,texv3,texv4,texv5,texv6,texv7,texv8,texv9,texv10;
+        private Button Reset,Set,switchman;
         private Integer kcal=0,bialko=0,tluszcz=0;
         private Integer Zkcal=0,Zbialko=0,Ztluszcz=0,Zkcal3=0,Zbialko3=0,Ztluszcz3=0;
         private EditText editText1,editText2,editText3,weight;
         private Switch sex,body,sport;
         private CheckBox rem;
-
+public int i=0;
     private String text,text1,text2,text3;
     private boolean switchOnOff1,switchOnOff2,switchOnOff3;
+    private int iii;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
@@ -38,6 +39,7 @@ public class StatActivity extends AppCompatActivity {
     public static final String SWITCH1 = "switch1";
     public static final String SWITCH2 = "switch2";
     public static final String SWITCH3 = "switch3";
+    public static final String III = "iii";
 
         DatabaseHelper mDatabaseHelper;
         @Override
@@ -61,11 +63,22 @@ public class StatActivity extends AppCompatActivity {
             editText1 = (EditText) findViewById(R.id.editText6);
             editText2 = (EditText) findViewById(R.id.editText7);
             editText3 = (EditText) findViewById(R.id.editText8);
+            texv1 = (TextView) findViewById(R.id.textView16);
+            texv2 = (TextView) findViewById(R.id.textView17);
+            texv3 = (TextView) findViewById(R.id.textView18);
             weight = (EditText) findViewById(R.id.editText9);
             sex = (Switch) findViewById(R.id.sex);
             body = (Switch) findViewById(R.id.body);
             sport = (Switch) findViewById(R.id.sport);
             rem = (CheckBox) findViewById(R.id.remember);
+            switchman = (Button) findViewById(R.id.button4);
+            texv4 = (TextView) findViewById(R.id.textView34);
+            texv5 = (TextView) findViewById(R.id.textView35);
+            texv6 = (TextView) findViewById(R.id.textView36);
+            texv7 = (TextView) findViewById(R.id.textView37);
+            texv8 = (TextView) findViewById(R.id.textView38);
+            texv9 = (TextView) findViewById(R.id.textView39);
+            texv10 = (TextView) findViewById(R.id.textView41);
 
             mDatabaseHelper = new DatabaseHelper(this);
 
@@ -88,6 +101,52 @@ public class StatActivity extends AppCompatActivity {
                     mDatabaseHelper.clearStats();
                 }
             });
+            switchman.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(i==0) {
+                        i = 1;
+                        switchman.setText("Switch to generator");
+                        editText1.setVisibility(View.VISIBLE);
+                        editText2.setVisibility(View.VISIBLE);
+                        editText3.setVisibility(View.VISIBLE);
+                        texv1.setVisibility(View.VISIBLE);
+                        texv2.setVisibility(View.VISIBLE);
+                        texv3.setVisibility(View.VISIBLE);
+                        texv4.setVisibility(View.INVISIBLE);
+                        texv5.setVisibility(View.INVISIBLE);
+                        texv6.setVisibility(View.INVISIBLE);
+                        texv7.setVisibility(View.INVISIBLE);
+                        texv8.setVisibility(View.INVISIBLE);
+                        texv9.setVisibility(View.INVISIBLE);
+                        texv10.setVisibility(View.INVISIBLE);
+                        sex.setVisibility(View.INVISIBLE);
+                        body.setVisibility(View.INVISIBLE);
+                        sport.setVisibility(View.INVISIBLE);
+                        weight.setVisibility(View.INVISIBLE);
+                    }else{
+                        i=0;
+                        switchman.setText("Switch to manual");
+                        editText1.setVisibility(View.INVISIBLE);
+                        editText2.setVisibility(View.INVISIBLE);
+                        editText3.setVisibility(View.INVISIBLE);
+                        texv1.setVisibility(View.INVISIBLE);
+                        texv2.setVisibility(View.INVISIBLE);
+                        texv3.setVisibility(View.INVISIBLE);
+                        texv4.setVisibility(View.VISIBLE);
+                        texv5.setVisibility(View.VISIBLE);
+                        texv6.setVisibility(View.VISIBLE);
+                        texv7.setVisibility(View.VISIBLE);
+                        texv8.setVisibility(View.VISIBLE);
+                        texv9.setVisibility(View.VISIBLE);
+                        texv10.setVisibility(View.VISIBLE);
+                        sex.setVisibility(View.VISIBLE);
+                        body.setVisibility(View.VISIBLE);
+                        sport.setVisibility(View.VISIBLE);
+                        weight.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
             Set.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -97,13 +156,8 @@ public class StatActivity extends AppCompatActivity {
             String proteins = editText2.getText().toString();
             String fats = editText3.getText().toString();
             String weights = weight.getText().toString();
-                    //automat pelny
-                    if(!weights.isEmpty()){
-                        //oba pelne
-                        if(!kcals.isEmpty()||!proteins.isEmpty()||!fats.isEmpty()){
-                            toastMessage("Cant calculate manually and automatically both!");
-                            return;
-                        }else{
+
+                    if(i==0){
                             //calculate cal
                             WeightA = Double.parseDouble(weights);
                             if(sex.isChecked()){
@@ -140,13 +194,8 @@ public class StatActivity extends AppCompatActivity {
                             WeightA=kcalA*0.25;
                             WeightA/=9;
                             fatA= (int) WeightA;
-                        }
+
                     }else{
-                        //oba puste
-                        if(kcals.isEmpty()||proteins.isEmpty()||fats.isEmpty()){
-                            toastMessage("Please enter weight or needs!");
-                            return;
-                        }else{//manual
                             //walidacja czy podany text jest zlozony z cyfr
                             if(kcals.matches("-?\\d+")&&proteins .matches("-?\\d+")&&fats.matches("-?\\d+")) {
                                 kcalA = Integer.parseInt(kcals);
@@ -156,7 +205,7 @@ public class StatActivity extends AppCompatActivity {
                                 toastMessage("Your input needs to be Integer!");
                                 return;
                             }
-                        }
+
                     }
 
                     calp.setText(""+Zkcal*100/kcalA+"%");
@@ -175,11 +224,15 @@ public class StatActivity extends AppCompatActivity {
 
             setStats();
 
-            if(!weights.isEmpty()){
+            if(!weights.isEmpty()&&i==0){
                 Set.performClick();
+                i=1;
+                switchman.performClick();
             }
-            if(!kcals.isEmpty()||!proteins.isEmpty()||!fats.isEmpty()) {
+            if((!kcals.isEmpty()||!proteins.isEmpty()||!fats.isEmpty())&&i==1) {
                 Set.performClick();
+                i=0;
+                switchman.performClick();
             }
 
     }
@@ -195,6 +248,7 @@ public class StatActivity extends AppCompatActivity {
         editor.putBoolean(SWITCH1, sex.isChecked());
         editor.putBoolean(SWITCH2, body.isChecked());
         editor.putBoolean(SWITCH3, sport.isChecked());
+        editor.putInt(III, i);
 
         editor.apply();
     }
@@ -208,6 +262,7 @@ public class StatActivity extends AppCompatActivity {
         switchOnOff1 = sharedPreferences.getBoolean(SWITCH1, false);
         switchOnOff2 = sharedPreferences.getBoolean(SWITCH2, false);
         switchOnOff3 = sharedPreferences.getBoolean(SWITCH3, false);
+        iii = sharedPreferences.getInt(III, 0);
     }
 
     public void updateViews() {
@@ -218,6 +273,7 @@ public class StatActivity extends AppCompatActivity {
         sex.setChecked(switchOnOff1);
         body.setChecked(switchOnOff2);
         sport.setChecked(switchOnOff3);
+        i=iii;
     }
 
         private void setStats() {
