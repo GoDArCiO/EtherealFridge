@@ -17,7 +17,7 @@ added automated way to calculate user needs, app remembers settings if user want
 design changes based on user feedback -> switch on/off manual and generator needs input for stats screen
 06/02/2020 ->3h
 
-total time spent -> 14h
+total time spent -> 15h
 
 in plan:
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
