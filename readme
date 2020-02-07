@@ -20,6 +20,7 @@ design changes based on user feedback -> switch on/off manual and generator need
 total time spent -> 15h
 
 in plan:
+Calculate how long can user run on what he has eaten and when he should eat next time to keep in flow.
 Expiry date with firebase notification if sth gets 2orLess days near uneatability.
 Giving user pointstreaks for keeping up with his macro-goals.
 ??? graphics, design, better app-flow, darkmode
